@@ -28,13 +28,13 @@ return require('packer').startup(function(use)
     use {'nvim-lua/plenary.nvim'}
     use {'ThePrimeagen/harpoon'}
 
+    -- Lsp Zero
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         requires = {
-            --- Uncomment these if you want to manage the language servers from neovim
-            -- {'williamboman/mason.nvim'},
-            -- {'williamboman/mason-lspconfig.nvim'},
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
 
             -- LSP Support
             {'neovim/nvim-lspconfig'},
@@ -45,11 +45,36 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- Mason
+    -- Which key
     use {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup {}
+        end
     }
 
+    -- Gitsigns
+    use {
+        "lewis6991/gitsigns.nvim",
+        signs = {
+            add = { text = '+' },
+            change = { text = '~' },
+            delete = { text = '_' },
+            topdelete = { text = '‾' },
+            changedelete = { text = '~' },
+        },
+    }
+
+    -- Comment
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
+    -- Indent Blankline
+    use "lukas-reineke/indent-blankline.nvim"
 end)
