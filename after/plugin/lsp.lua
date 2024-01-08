@@ -25,3 +25,14 @@ require("mason-lspconfig").setup({
         lsp.default_setup,
     },
 })
+
+local cmp = require("cmp")
+cmp.setup {
+    mapping = {
+        ["<CR>"] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true,
+        },
+        ["<C-Space>"] = cmp.mapping.complete {},
+    }
+}
