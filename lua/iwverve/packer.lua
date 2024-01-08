@@ -77,4 +77,12 @@ return require('packer').startup(function(use)
 
     -- Indent Blankline
     use "lukas-reineke/indent-blankline.nvim"
+
+    -- Nvim-tree
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            "nvim-tree/nvim-web-devicons"
+        },
+    }
 end)
