@@ -94,4 +94,10 @@ return require('packer').startup(function(use)
             "nvim-tree/nvim-web-devicons"
         },
     }
+
+    -- ufo
+    use {
+        'kevinhwang91/nvim-ufo',
+        requires = 'kevinhwang91/promise-async',
+    }
 end)
