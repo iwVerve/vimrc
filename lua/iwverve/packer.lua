@@ -17,14 +17,25 @@ return require('packer').startup(function(use)
     --         vim.cmd('colorscheme dracula')
     --     end
     -- }
-    use { 'rebelot/kanagawa.nvim',
+    -- use { 'rebelot/kanagawa.nvim',
+    --     config = function()
+    --         require('kanagawa').setup({
+    --             commentStyle = { italic = false },
+    --             keywordStyle = { italic = false },
+    --         })
+    --         vim.cmd('colorscheme kanagawa-dragon')
+    --     end
+    -- }
+    use { 
+        'verve-theme',
         config = function()
-            require('kanagawa').setup({
-                commentStyle = { italic = false },
-                keywordStyle = { italic = false },
-            })
-            vim.cmd('colorscheme kanagawa-dragon')
+            vim.cmd('colorscheme verve-theme')
         end
+    }
+
+    -- Lush
+    use {
+        'rktjmp/lush.nvim',
     }
 
     -- Treesitter
@@ -33,9 +44,9 @@ return require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
-    -- Harpoon
-    use { 'nvim-lua/plenary.nvim' }
-    use { 'ThePrimeagen/harpoon' }
+    -- -- Harpoon
+    -- use { 'nvim-lua/plenary.nvim' }
+    -- use { 'ThePrimeagen/harpoon' }
 
     -- Lsp Zero
     use {
