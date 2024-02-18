@@ -8,7 +8,7 @@ local hue = math.random(360)
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
-    Normal         { fg = hsl(hue, 75, 60), bg = hsl(hue, 25, 5) }, -- Normal text
+    Normal         { fg = hsl(hue, 40, 60), bg = hsl(hue, 10, 6) }, -- Normal text
     SlightlyLighter { fg = Normal.fg.ro(30).li(3), bg = Normal.bg.ro(30).li(3) },
 
     NonText        { fg = Normal.bg }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
@@ -46,6 +46,14 @@ local theme = lush(function(injected_functions)
 
     Identifier     { fg = Normal.fg.ro(120).li(30) }, -- (*) Any variable name
     Function       { fg = Normal.fg.ro(240).li(30)}, --   Function name (also: methods for classes)
+
+    Statement      { fg = Normal.fg.ro(180).sa(50) }, -- (*) Any statement
+    -- Conditional    { }, --   if, then, else, endif, switch, etc.
+    -- Repeat         { }, --   for, do, while, etc.
+    -- Label          { }, --   case, default, etc.
+    -- Operator       { }, --   "sizeof", "+", "*", etc.
+    -- Keyword        { }, --   any other keyword
+    -- Exception      { }, --   try, catch, throw
 
 
     -- Defaults:
@@ -102,14 +110,6 @@ local theme = lush(function(injected_functions)
     -- WildMenu       { }, -- Current match in 'wildmenu' completion
     -- WinBar         { }, -- Window bar of current window
     -- WinBarNC       { }, -- Window bar of not-current windows
-
-    -- Statement      { }, -- (*) Any statement
-    -- Conditional    { }, --   if, then, else, endif, switch, etc.
-    -- Repeat         { }, --   for, do, while, etc.
-    -- Label          { }, --   case, default, etc.
-    -- Operator       { }, --   "sizeof", "+", "*", etc.
-    -- Keyword        { }, --   any other keyword
-    -- Exception      { }, --   try, catch, throw
 
     -- PreProc        { }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
