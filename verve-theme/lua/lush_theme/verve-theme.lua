@@ -1,6 +1,7 @@
 local lush = require('lush')
 local hsl = lush.hsl
 
+math.randomseed(os.time())
 local hue = math.random(360)
 
 ---@diagnostic disable: undefined-global
