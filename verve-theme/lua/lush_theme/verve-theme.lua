@@ -3,12 +3,14 @@ local hsl = lush.hsl
 
 math.randomseed(os.time())
 local hue = math.random(360)
+local saturation = math.random(30, 70)
+local bg_lightness = math.random(3, 15)
 
 ---@diagnostic disable: undefined-global
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
-    Normal         { fg = hsl(hue, 40, 60), bg = hsl(hue, 10, 6) }, -- Normal text
+    Normal         { fg = hsl(hue, saturation, 60), bg = hsl(hue, saturation/10, bg_lightness) }, -- Normal text
     SlightlyLighter { fg = Normal.fg.ro(30).li(3), bg = Normal.bg.ro(30).li(3) },
 
     NonText        { fg = Normal.bg }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
@@ -34,6 +36,9 @@ local theme = lush(function(injected_functions)
     NormalFloat    { fg = Normal.fg.ro(-45).sa(5).li(5), bg = Normal.bg.ro(-45).sa(5).li(5) }, -- Normal text in floating windows.
     FloatBorder    { NormalFloat }, -- Border of floating windows.
     FloatTitle     { NormalFloat }, -- Title of floating windows.
+
+
+    Question       { fg = hsl(120, saturation, 60) }, -- |hit-enter| prompt and yes/no questions
 
 
     Comment        { fg = Normal.fg.de(60).da(40) }, -- Any comment
@@ -89,7 +94,6 @@ local theme = lush(function(injected_functions)
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg        { }, -- |more-prompt|
     -- NormalNC       { }, -- normal text in non-current windows
-    -- Question       { }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine   { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     -- Search         { }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
     -- SpecialKey     { }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
