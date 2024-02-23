@@ -20,6 +20,8 @@ local theme = lush(function(injected_functions)
     Folded         { SlightlyLighter }, -- Line used for closed folds
     CursorLine     { SlightlyLighter }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
 
+    Visual         { fg = Normal.bg, bg = Normal.fg }, -- Visual mode selection
+
     Title          { fg = Normal.fg.ro(180) }, -- Titles for output from ":set all", ":autocmd" etc.
     Directory      { fg = Normal.fg.ro(30) }, -- Directory names (and other special names in listings)
 
@@ -106,7 +108,6 @@ local theme = lush(function(injected_functions)
     -- TabLine        { }, -- Tab pages line, not active tab page label
     -- TabLineFill    { }, -- Tab pages line, where there are no labels
     -- TabLineSel     { }, -- Tab pages line, active tab page label
-    -- Visual         { }, -- Visual mode selection
     -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg     { }, -- Warning messages
     -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
