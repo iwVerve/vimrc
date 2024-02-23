@@ -1,3 +1,4 @@
+---@diagnostic disable undefined-global
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -10,27 +11,20 @@ return require('packer').startup(function(use)
     }
 
     -- Theme
-    -- use {
-    --     'maxmx03/dracula.nvim',
-    --     as = 'dracula',
-    --     config = function()
-    --         vim.cmd('colorscheme dracula')
-    --     end
-    -- }
-    -- use { 'rebelot/kanagawa.nvim',
-    --     config = function()
-    --         require('kanagawa').setup({
-    --             commentStyle = { italic = false },
-    --             keywordStyle = { italic = false },
-    --         })
-    --         vim.cmd('colorscheme kanagawa-dragon')
-    --     end
-    -- }
+    use {
+        'maxmx03/dracula.nvim',
+        as = 'dracula',
+    }
+    use { 'rebelot/kanagawa.nvim',
+        config = function()
+            require('kanagawa').setup({
+                commentStyle = { italic = false },
+                keywordStyle = { italic = false },
+            })
+        end,
+    }
     use { 
         'verve-theme',
-        config = function()
-            vim.cmd('colorscheme verve-theme')
-        end
     }
 
     -- Lush
