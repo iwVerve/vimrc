@@ -1,4 +1,9 @@
-vim.cmd("language en_US")
+local sysname = vim.loop.os_uname().sysname
+local is_windows = sysname == "Windows_NT"
+if is_windows then
+    vim.cmd("language en_US")
+end
+
 vim.g.mapleader = " "
 
 vim.opt.nu = true
