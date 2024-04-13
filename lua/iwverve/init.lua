@@ -5,7 +5,8 @@ vim.g.loaded_netrwPlugin = 1
 require("iwverve.set")
 require("iwverve.remap")
 
-if table.getn(vim.v.argv) > 2 then
+local path = vim.v.argv[3]
+if path == "." then
     vim.cmd("vsplit")
     vim.cmd("wincmd l")
     vim.cmd("enew")
