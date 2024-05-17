@@ -23,9 +23,12 @@ return require('packer').startup(function(use)
             })
         end,
     }
-    use { 
-        'verve-theme',
+    use {
+        'sainnhe/everforest'
     }
+    -- use { 
+    --     'verve-theme',
+    -- }
 
     -- Lush
     use {
