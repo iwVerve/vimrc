@@ -11,3 +11,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end)
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+vim.keymap.set("n", "<leader>zb", function () vim.cmd('!zig build') end)
+vim.keymap.set("n", "<leader>zr", function () vim.cmd('!zig build run') end)
+vim.keymap.set("n", "<leader>zl", function () vim.cmd('!zig build reload') end)

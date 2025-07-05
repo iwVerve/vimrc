@@ -32,13 +32,13 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-require('iwverve.ufo')
+-- require('iwverve.ufo')
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -50,3 +50,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+vim.opt.rtp:append("C:\\Users\\Ondra\\AppData\\Local\\opam\\default\\share/ocp-indent/vim")
+
+require ('nvim-treesitter.install').compilers = { 'zig' }
