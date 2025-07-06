@@ -13,6 +13,19 @@ return {
         local cmp = require('cmp')
         local cmp_lsp = require('cmp_nvim_lsp')
 
+        vim.api.nvim_create_autocmd('LspAttach', {
+            callback = function(event)
+                local opts = { buffer = event.buf }
+
+                vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
+                vim.keymap.set('n', '<leader>vd', function() vim.lsp.diagnostic.open_float() end, opts)
+                vim.keymap.set('n', '<leader>vca', function() vim.lsp.buf.code_action() end, opts)
+                vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end, opts)
+                vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
+                vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
+            end
+        })
+
         local capabilities = vim.tbl_deep_extend(
             'force',
             {},
@@ -37,30 +50,19 @@ return {
                     require('luasnip').lsp_expand(args.body)
                 end
             },
-            mapping = {
-                ["<CR>"] = cmp.mapping.confirm {
+            mapping = cmp.mapping.preset.insert{
+                ['<CR>'] = cmp.mapping.confirm {
                     behavior = cmp.ConfirmBehavior.Insert,
                     select = true,
                 },
-                ["<C-Space>"] = cmp.mapping.complete {}, 
+                ['<C-Space>'] = cmp.mapping.complete(),
             },
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
             }, {
                 { name = 'buffer' },
-            })
-        }
-
-        vim.diagnostic.config {
-            float = {
-                focusable = false,
-                style = 'minimal',
-                border = 'rounded',
-                source = 'always',
-                header = '',
-                prefix = '',
-            }
+            }),
         }
     end,
 }
