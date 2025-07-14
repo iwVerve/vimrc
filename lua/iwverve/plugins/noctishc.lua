@@ -1,6 +1,6 @@
 return {
     'iagorrr/noctishc.nvim',
-    opts = {},
+    priority = 1000,
     config = function()
         vim.cmd([[colorscheme noctishc]])
     end,
