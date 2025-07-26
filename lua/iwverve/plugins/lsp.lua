@@ -65,6 +65,8 @@ return {
             }),
         }
 
-        vim.lsp.enable('zls')
+        require('lspconfig').zls.setup({
+            cmd = { 'zls' },
+        })
     end,
 }
