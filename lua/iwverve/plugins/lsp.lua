@@ -64,5 +64,7 @@ return {
                 { name = 'buffer' },
             }),
         }
+
+        vim.lsp.enable('zls')
     end,
 }
